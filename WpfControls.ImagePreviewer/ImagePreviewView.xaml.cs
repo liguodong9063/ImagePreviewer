@@ -102,7 +102,7 @@ namespace WpfControls.ImagePreviewer
             //sb_close = this.FindResource("cl_HideTools") as Storyboard;
             sb_Tip = FindResource("sb_Tips") as Storyboard;
             tfGroup = FindResource("TfGroup") as TransformGroup;
-            this.Loaded += MainWindow_Loaded;
+            Loaded += MainWindow_Loaded;
             this.MouseEnter += ImageViews_MouseEnter;
             this.MouseLeave += ImageViews_MouseLeave;
             svImg.ScrollChanged += svImg_ScrollChanged;
