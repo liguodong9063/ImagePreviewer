@@ -128,8 +128,137 @@ namespace WpfControls.ImagePreviewer
             stkClose.MouseMove += stkClose_MouseMove;
             stkClose.MouseLeave += stkClose_MouseLeave;
             this.MouseMove += ImageViews_MouseMove;
-        
             SetbtnActualsizeEnable();
+        }
+
+        public void ImagePreviewView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left)
+            {
+                if (SourceList.Index == 0)
+                {
+                    //imgBig.Source = ByteArrayToBitmapImage(SourceList.imageSources[SourceList.imageSources.Count-1]);
+                    //imgless.Source = ByteArrayToBitmapImage(SourceList.imageSources[SourceList.imageSources.Count - 1]);
+                    //imgBig.Height = ByteArrayToBitmapImage((SourceList.imageSources[SourceList.imageSources.Count - 1])).Height;
+                    //imgBig.Width = ByteArrayToBitmapImage((SourceList.imageSources[SourceList.imageSources.Count - 1])).Width;
+                    //if (tfGroup != null)
+                    //{
+                    //    var rotate = tfGroup.Children[2] as RotateTransform;
+                    //    rotate.Angle = 0;
+                    //}
+                    //SourceList.Index = SourceList.imageSources.Count-1;
+                    //SourceChange = true;
+                    //scale = 1;
+                    //mouseXY.X = 0;
+                    //mouseXY.Y = 0;
+                    last.IsEnabled = false;
+
+                }
+
+                else
+                {
+
+                    imgBig.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index - 1]);
+                    imgless.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index - 1]);
+                    imgBig.Width = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index - 1])).Width;
+                    imgBig.Height = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index - 1])).Height;
+                    //imgless.Width = (SourceList.imageSources[SourceList.Index - 1]).Width;
+                    //imgless.Height = (SourceList.imageSources[SourceList.Index - 1]).Height;
+
+                    if (tfGroup != null)
+                    {
+                        var rotate = tfGroup.Children[2] as RotateTransform;
+                        rotate.Angle = 0;
+                    }
+
+                    SourceList.Index--;
+                    SourceChange = true;
+                    scale = 1;
+                    mouseXY.X = 0;
+                    mouseXY.Y = 0;
+                    last.IsEnabled = true;
+                    if (SourceList.Index == 0)
+                    {
+                        last.IsEnabled = false;
+
+                    }
+
+                }
+                this.UpdateLayout();
+                GetImageWidthHeight();
+                //thumbWidth = (int)mask.ActualWidth;
+                //thumbHeight = (int)mask.ActualHeight;
+                //double timeH = svImg.ViewportHeight / (svImg.ViewportHeight + svImg.ScrollableHeight);
+                //double timeW = svImg.ViewportWidth / (svImg.ViewportWidth + svImg.ScrollableWidth);
+                //double w = thumbWidth * timeW;
+                //double h = thumbHeight * timeH;
+                //Rect rect = new Rect(0,0, w, h);
+                //mask.UpdateSelectionRegion(rect);
+                SourceChange = false;
+            }
+            if(e.Key == Key.Right)
+            {
+                if (SourceList.Index == SourceList.ImageSources.Count - 1)
+                {
+                    //imgBig.Source = ByteArrayToBitmapImage(SourceList.imageSources[0]);
+                    //imgless.Source = ByteArrayToBitmapImage(SourceList.imageSources[0]);
+                    //imgBig.Height = ByteArrayToBitmapImage((SourceList.imageSources[0])).Height;
+                    //imgBig.Width = ByteArrayToBitmapImage((SourceList.imageSources[0])).Width;
+                    //if (tfGroup != null)
+                    //{
+                    //    var rotate = tfGroup.Children[2] as RotateTransform;
+                    //    rotate.Angle = 0;
+                    //}
+
+                    //SourceList.Index = 0;
+                    //SourceChange = true;
+                    //scale = 1;
+                    //mouseXY.X = 0;
+                    //mouseXY.Y = 0;
+                    next.IsEnabled = false;
+
+                }
+
+                else
+                {
+
+                    imgBig.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index + 1]);
+                    imgless.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index + 1]);
+                    imgBig.Width = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index + 1])).Width;
+                    imgBig.Height = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index + 1])).Height;
+                    //imgless.Width = (SourceList.imageSources[SourceList.Index - 1]).Width;
+                    //imgless.Height = (SourceList.imageSources[SourceList.Index - 1]).Height;
+
+                    if (tfGroup != null)
+                    {
+                        var rotate = tfGroup.Children[2] as RotateTransform;
+                        rotate.Angle = 0;
+                    }
+
+                    SourceList.Index++;
+                    SourceChange = true;
+                    scale = 1;
+                    mouseXY.X = 0;
+                    mouseXY.Y = 0;
+                    next.IsEnabled = true;
+                    if (SourceList.Index == SourceList.ImageSources.Count - 1)
+                    {
+                        next.IsEnabled = false;
+                    }
+
+                }
+                this.UpdateLayout();
+                GetImageWidthHeight();
+                //thumbWidth = (int)mask.ActualWidth;
+                //thumbHeight = (int)mask.ActualHeight;
+                //double timeH = svImg.ViewportHeight / (svImg.ViewportHeight + svImg.ScrollableHeight);
+                //double timeW = svImg.ViewportWidth / (svImg.ViewportWidth + svImg.ScrollableWidth);
+                //double w = thumbWidth * timeW;
+                //double h = thumbHeight * timeH;
+                //Rect rect = new Rect(0,0, w, h);
+                //mask.UpdateSelectionRegion(rect);
+                SourceChange = false;
+            }
         }
 
         private void ImageViews_MouseMove(object sender, MouseEventArgs e)
@@ -178,11 +307,13 @@ namespace WpfControls.ImagePreviewer
         private void Border_LostFocus(object sender, RoutedEventArgs e)
         {
             spl_gj.Visibility = Visibility.Collapsed;
+            border1.Visibility = Visibility.Collapsed;
         }
 
         private void Border_GotFocus(object sender, RoutedEventArgs e)
         {
             spl_gj.Visibility = Visibility.Visible;
+            border1.Visibility = Visibility.Visible;
         }
 
         private void SaveAs_Click(object sender, RoutedEventArgs e)

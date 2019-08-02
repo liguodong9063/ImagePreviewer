@@ -5,7 +5,7 @@
              xmlns:imagePreviewer="clr-namespace:WpfControls.ImagePreviewer"
              x:Class="WpfControls.ImagePreviewer.ImagePreviewView" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="800" >
+             d:DesignHeight="300" d:DesignWidth="800"  >
     <UserControl.Resources>
         <!--<Storyboard x:Key="Sb_ShowTools">
 			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
@@ -491,20 +491,21 @@
 
 
         </Grid>
-        <Border x:Name="border" BorderThickness="0" Margin="0,0,0,0" Height="100" VerticalAlignment="Bottom" Width="1450" HorizontalAlignment="Center" CornerRadius="5,5,0,0" Background="Transparent">
+        <Border x:Name="border" BorderThickness="0" Margin="0,0,0,0" Height="100" VerticalAlignment="Bottom" Width="1400" HorizontalAlignment="Center" CornerRadius="5,5,0,0" Panel.ZIndex="10" Background="Transparent">
             <!--<Button Click="LeftImg_Click" Style="{StaticResource TurnLeftButtonStyle}"/>
 		    <Button Click="RightImg_Click" Style="{StaticResource TurnRightButtonStyle}"/>
 		    <Button x:Name="UpImage" Click="UpImg_Click" Style="{StaticResource PreviousOneButtonStyle}"/>
 		    <Button x:Name="DownImage" Click="DownImg_Click" Style="{StaticResource NextOneButtonStyle}"/>
 		   
 		    <Button Click="Restore_Click" Style="{StaticResource RestoreButtonStyle}"/>-->
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Orientation="Horizontal" Visibility="Collapsed" x:Name="spl_gj" Background="Transparent" Cursor="Arrow" Margin="0">
-                <Button x:Name="SaveAs" BorderThickness="0 0 0 4" Style="{StaticResource SaveAsButtonStyle}"/>
-                <Button x:Name="btnActualsize" BorderThickness="0 0 0 4" ToolTip="实际大小" FontSize="20" Margin="10,0,5,0" Style="{StaticResource RestoreButtonStyle}" Cursor="Hand"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Orientation="Horizontal" Visibility="Collapsed"  x:Name="spl_gj"  Panel.ZIndex="10" Cursor="Arrow" Margin="0">
+          
+                <Button x:Name="SaveAs" BorderThickness="0 0 0 4" Margin="10,0,0,0" Style="{StaticResource SaveAsButtonStyle}"/>
+                <Button x:Name="btnActualsize" BorderThickness="0 0 0 4" ToolTip="实际大小" FontSize="20" Margin="11,0,5,0" Style="{StaticResource RestoreButtonStyle}"  Cursor="Hand"/>
                 <Button x:Name="btnEnlarge" BorderThickness="0 0 0 4" ToolTip="图片放大" Margin="5,0" Style="{DynamicResource fdj}" Cursor="Hand">
 
                 </Button>
-                <Button x:Name="btnNarrow" BorderThickness="0 0 0 4" ToolTip="图片缩小" Margin="5,0" Style="{DynamicResource sxj}" Cursor="Hand">
+                <Button x:Name="btnNarrow" BorderThickness="0 0 0 4" ToolTip="图片缩小" Margin="5,0" Panel.ZIndex="54" Style="{DynamicResource sxj}" Cursor="Hand">
 
                 </Button>
                 <Button x:Name="btnRotate" BorderThickness="0 0 0 4" Margin="5,0,10,0" ToolTip="向右旋转" Style="{StaticResource TurnRightButtonStyle}"  Cursor="Hand">
@@ -514,6 +515,10 @@
 
                 </Button>
             </StackPanel>
+
+        </Border>
+        <Border x:Name="border1" BorderThickness="0" Margin="0,0,0,0" Height="60"  VerticalAlignment="Bottom" Width="420" Opacity="0.5" Visibility="Collapsed"  HorizontalAlignment="Center" CornerRadius="5,5,0,0" Background="#f5f5f5">
+        
 
         </Border>
         <StackPanel HorizontalAlignment="Right" x:Name="stkClose" Width="1420" Panel.ZIndex="54" Height="70" VerticalAlignment="Top" Background="Transparent" Orientation="Horizontal" Margin="0">
@@ -538,7 +543,7 @@
                 </Image.Style>
             </Image>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Background="Transparent" x:Name="stkLeft" VerticalAlignment="Center" Height="720" Width="100" Orientation="Horizontal" Margin="0">
+        <StackPanel HorizontalAlignment="Left" Background="Transparent" x:Name="stkLeft" VerticalAlignment="Center"   Height="720" Width="100" Orientation="Horizontal" Margin="0">
             <Image x:Name="last" Visibility="Collapsed" Margin="20,0,15,0" Height="45" Cursor="Hand">
                 <Image.Style>
                     <Style TargetType="Image">

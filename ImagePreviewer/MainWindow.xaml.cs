@@ -51,6 +51,13 @@ namespace ImagePreviewer
             };
         }
 
+        private void ImagePreviewView_KeyDown(object sender, KeyEventArgs e)
+        {
+            ImagePreviewer.ImagePreviewView_KeyDown(sender, e);
+
+
+        }
+
         private void BackGround_MouseMove(object sender, MouseEventArgs e)
         {
             if (!_isBackgroundDragMove) return;
