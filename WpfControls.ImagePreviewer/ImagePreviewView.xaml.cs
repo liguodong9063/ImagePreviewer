@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 namespace WpfControls.ImagePreviewer
 {
     /// <summary>
-    /// ImageView.xaml 的交互逻辑
+    /// ImagePreviewView.xaml 的交互逻辑
     /// </summary>
     public partial class ImagePreviewView
     {
@@ -100,8 +100,8 @@ namespace WpfControls.ImagePreviewer
             //sb_right = this.FindResource("rg_HideTools") as Storyboard;
             //sb_left = this.FindResource("le_HideTools") as Storyboard;
             //sb_close = this.FindResource("cl_HideTools") as Storyboard;
-            sb_Tip = this.FindResource("sb_Tips") as Storyboard;
-            tfGroup = this.FindResource("TfGroup") as TransformGroup;
+            sb_Tip = FindResource("sb_Tips") as Storyboard;
+            tfGroup = FindResource("TfGroup") as TransformGroup;
             this.Loaded += MainWindow_Loaded;
             this.MouseEnter += ImageViews_MouseEnter;
             this.MouseLeave += ImageViews_MouseLeave;

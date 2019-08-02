@@ -182,11 +182,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/previousone.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/previousone.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/previousone-disabled.png" />
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/previousone-disabled.png" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#dbe9f7" />
@@ -216,11 +216,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/sx.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/sx.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/sx.png" />
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/sx.png" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#dbe9f7" />
@@ -251,11 +251,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/fd.png"/>
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/fd.png"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/fd.png" />
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/fd.png" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#dbe9f7" />
@@ -286,11 +286,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/nextone.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/nextone.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/nextone-disabled.png" />
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/nextone-disabled.png" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#dbe9f7" />
@@ -321,7 +321,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/restore.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/restore.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -353,7 +353,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/saveas.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/saveas.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -385,7 +385,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/turnleft.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/turnleft.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -417,7 +417,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/turnright.png" />
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/turnright.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -524,13 +524,13 @@
             <Image x:Name="next" Visibility="Collapsed"  Margin="30,0,5,0" Height="45" Cursor="Hand">
                 <Image.Style>
                     <Style TargetType="Image">
-                        <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/right.png" />
+                        <Setter Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/right.png" />
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/rightu.png" />
+                                <Setter Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/rightu.png" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/uright.png" />
+                                <Setter Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/uright.png" />
                             </Trigger>
                         </Style.Triggers>
 
@@ -542,13 +542,13 @@
             <Image x:Name="last" Visibility="Collapsed" Margin="20,0,15,0" Height="45" Cursor="Hand">
                 <Image.Style>
                     <Style TargetType="Image">
-                        <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/Left.png" />
+                        <Setter Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/Left.png" />
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/Leftu.png" />
+                                <Setter Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/Leftu.png" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/uleft.png" />
+                                <Setter Property="Source" Value="pack://application:,,,/WpfControls.ImagePreviewer;component/Images/uleft.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
