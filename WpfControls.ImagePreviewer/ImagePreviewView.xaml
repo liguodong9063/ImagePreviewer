@@ -1,0 +1,564 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:imagePreviewer="clr-namespace:WpfControls.ImagePreviewer"
+             x:Class="WpfControls.ImagePreviewer.ImagePreviewView" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800" >
+    <UserControl.Resources>
+        <!--<Storyboard x:Key="Sb_ShowTools">
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+				<EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0 0 0 0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Sb_HideTools">
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+				<EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,0,0,-46"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+	    <Storyboard x:Key="cl_HideTools">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="stkClose">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,-46,0,0"/>
+	        </ThicknessAnimationUsingKeyFrames>
+	    </Storyboard>
+	    <Storyboard x:Key="rg_HideTools">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="stkRight">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,0,-46,0"/>
+	        </ThicknessAnimationUsingKeyFrames>
+	    </Storyboard>
+	    <Storyboard x:Key="le_HideTools">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="stkLeft">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="-46,0,0,0"/>
+	        </ThicknessAnimationUsingKeyFrames>
+	    </Storyboard>
+	    <Storyboard x:Key="cl_ShowTools">
+	        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="stkClose">
+	            <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,0,0,0"/>
+	        </ThicknessAnimationUsingKeyFrames>
+	    </Storyboard>
+        <Storyboard x:Key="rg_ShowTools">
+	        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="stkRight">
+	            <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,0,0,0"/>
+	        </ThicknessAnimationUsingKeyFrames>
+	    </Storyboard>
+        <Storyboard x:Key="le_ShowTools">
+	        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="stkLeft">
+	            <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,0,0,0"/>
+	        </ThicknessAnimationUsingKeyFrames>
+	    </Storyboard>-->
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ImageToolBtn" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Chrome" BorderBrush="Transparent" Background="Transparent" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="#FF288ADD"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LoginViewColseButton"
+               TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="40" 
+                               Height="40"
+                                 x:Name="border">
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#C1C1C1"/>
+
+                                </Style>
+                            </Border.Style>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <!--<ColorAnimation Duration="0" To="#1c97ea" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="FocusEllipse" />
+                                                        <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="path" />-->
+                                        </Storyboard>
+                                    </VisualState>
+                                    <!--<VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0"
+                                                            To="#C75050"
+                                                            Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                            Storyboard.TargetName="path" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0"
+                                                            To="Red"
+                                                            Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                            Storyboard.TargetName="path" />
+                                        </Storyboard>
+                                    </VisualState>-->
+
+                                    <VisualState x:Name="Disabled" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused" />
+                                    <VisualState x:Name="UnFocused" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <!--<Ellipse x:Name="FocusEllipse"
+                                     StrokeThickness="2"
+                                     Fill="#FF815450"
+                                     Stroke="#FFAF908C"
+                                     MouseDown="Ellipse_MouseDown"></Ellipse>-->
+
+                            <Path x:Name="path"
+                                  RenderTransformOrigin="0.5,0.5"
+                                  Data="M0,0 L6,6 M6,0 L0,6"
+                                  Stroke="#FFEEEEEE"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  StrokeThickness="1">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="2"
+                                                        ScaleY="2" />
+                                        <SkewTransform />
+                                        <RotateTransform />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#Fc8379" TargetName="border"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Red" TargetName="border"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--上一张按钮（图片预览）-->
+        <Style TargetType="Button" x:Key="PreviousOneButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="上一张" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/previousone.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/previousone-disabled.png" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="sxj" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="缩小" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/sx.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/sx.png" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="fdj" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="放大" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/fd.png"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/fd.png" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--下一张按钮（图片预览）-->
+        <Style TargetType="Button" x:Key="NextOneButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="下一张" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/nextone.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="EditNoImage" Property="Source" Value="pack://application:,,,/ImageView;component/Images/nextone-disabled.png" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--还原按钮（图片预览）-->
+        <Style TargetType="Button" x:Key="RestoreButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="还原" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/restore.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--另存为按钮（图片预览）-->
+        <Style TargetType="Button" x:Key="SaveAsButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="另存为" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/saveas.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--左转按钮（图片预览）-->
+        <Style TargetType="Button" x:Key="TurnLeftButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="左转" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/turnleft.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--右转按钮（图片预览）-->
+        <Style TargetType="Button" x:Key="TurnRightButtonStyle" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+            <Setter Property="ToolTip" Value="右转" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image Width="25" Height="25" x:Name="EditNoImage" Source="pack://application:,,,/ImageView;component/Images/turnright.png" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#dbe9f7" />
+                                <Setter Property="BorderBrush" Value="#2782e0" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" Color="DarkGray" Direction="0" Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <TransformGroup x:Key="TfGroup">
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform Angle="0"/>
+            <TranslateTransform/>
+        </TransformGroup>
+        <Storyboard x:Key="sb_Tips">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="gridTips">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.3" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="gridTips">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid ClipToBounds="True">
+        <ScrollViewer 
+			x:Name="svImg"
+			VerticalScrollBarVisibility="Hidden"
+			HorizontalScrollBarVisibility="Hidden" >
+            <Grid x:Name="rootGrid"  Background="#F5F5F5" 
+                  >
+                <ContentControl x:Name="control"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <Image x:Name="imgBig" Cursor="Help"  LayoutTransform="{StaticResource TfGroup}" Stretch="UniformToFill"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Image.Effect>
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#c8c8c8"/>
+                        </Image.Effect>
+                    </Image>
+                </ContentControl>
+
+            </Grid>
+
+        </ScrollViewer>
+        <Grid x:Name="gridMouse" Background="Transparent"/>
+        <Grid Margin="0" Width="100" Visibility="Collapsed" x:Name="lessimage" Height="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="0.7" Background="#141414">
+            <ContentControl x:Name="controlmask"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                <Image x:Name="imgless"   LayoutTransform="{StaticResource TfGroup}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                </Image>
+            </ContentControl>
+
+            <imagePreviewer:MaskCanvas x:Name="mask" Width="{Binding ActualWidth, ElementName=controlmask}" Height="{Binding ActualHeight, ElementName=controlmask}" Margin="0">
+                <imagePreviewer:MaskCanvas.Effect >
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="1" Color="#333333"/>
+                </imagePreviewer:MaskCanvas.Effect>
+            </imagePreviewer:MaskCanvas>
+
+
+        </Grid>
+        <Border x:Name="border" BorderThickness="0" Margin="0,0,0,0" Height="100" VerticalAlignment="Bottom" Width="1450" HorizontalAlignment="Center" CornerRadius="5,5,0,0" Background="Transparent">
+            <!--<Button Click="LeftImg_Click" Style="{StaticResource TurnLeftButtonStyle}"/>
+		    <Button Click="RightImg_Click" Style="{StaticResource TurnRightButtonStyle}"/>
+		    <Button x:Name="UpImage" Click="UpImg_Click" Style="{StaticResource PreviousOneButtonStyle}"/>
+		    <Button x:Name="DownImage" Click="DownImg_Click" Style="{StaticResource NextOneButtonStyle}"/>
+		   
+		    <Button Click="Restore_Click" Style="{StaticResource RestoreButtonStyle}"/>-->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Orientation="Horizontal" Visibility="Collapsed" x:Name="spl_gj" Background="Transparent" Cursor="Arrow" Margin="0">
+                <Button x:Name="SaveAs" BorderThickness="0 0 0 4" Style="{StaticResource SaveAsButtonStyle}"/>
+                <Button x:Name="btnActualsize" BorderThickness="0 0 0 4" ToolTip="实际大小" FontSize="20" Margin="10,0,5,0" Style="{StaticResource RestoreButtonStyle}" Cursor="Hand"/>
+                <Button x:Name="btnEnlarge" BorderThickness="0 0 0 4" ToolTip="图片放大" Margin="5,0" Style="{DynamicResource fdj}" Cursor="Hand">
+
+                </Button>
+                <Button x:Name="btnNarrow" BorderThickness="0 0 0 4" ToolTip="图片缩小" Margin="5,0" Style="{DynamicResource sxj}" Cursor="Hand">
+
+                </Button>
+                <Button x:Name="btnRotate" BorderThickness="0 0 0 4" Margin="5,0,10,0" ToolTip="向右旋转" Style="{StaticResource TurnRightButtonStyle}"  Cursor="Hand">
+
+                </Button>
+                <Button x:Name="btnLeft" BorderThickness="0 0 0 4" Margin="5,0,10,0" ToolTip="向左旋转" Style="{StaticResource TurnLeftButtonStyle}" Cursor="Hand">
+
+                </Button>
+            </StackPanel>
+
+        </Border>
+        <StackPanel HorizontalAlignment="Right" x:Name="stkClose" Width="1420" Panel.ZIndex="54" Height="70" VerticalAlignment="Top" Background="Transparent" Orientation="Horizontal" Margin="0">
+            <Button x:Name="Close" ToolTip="关闭"  Content="关闭" Style="{StaticResource LoginViewColseButton}" Visibility="Collapsed"  FontSize="20" Margin="1380,0,0,30" Cursor="Hand"/>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right" Background="Transparent" x:Name="stkRight" VerticalAlignment="Center" Height="720" Width="100" Orientation="Horizontal" Margin="0">
+            <Image x:Name="next" Visibility="Collapsed"  Margin="30,0,5,0" Height="45" Cursor="Hand">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/right.png" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/rightu.png" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/uright.png" />
+                            </Trigger>
+                        </Style.Triggers>
+
+                    </Style>
+                </Image.Style>
+            </Image>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Background="Transparent" x:Name="stkLeft" VerticalAlignment="Center" Height="720" Width="100" Orientation="Horizontal" Margin="0">
+            <Image x:Name="last" Visibility="Collapsed" Margin="20,0,15,0" Height="45" Cursor="Hand">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/Left.png" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/Leftu.png" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Source" Value="pack://application:,,,/ImageView;component/Images/uleft.png" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+        </StackPanel>
+        <Grid x:Name="gridTips" IsHitTestVisible="False" HorizontalAlignment="Center" MinWidth="75" VerticalAlignment="Center" Visibility="Collapsed" Opacity="0">
+            <Rectangle Fill="#B2000000" RadiusX="5" RadiusY="5"/>
+            <TextBlock x:Name="txtZoom" HorizontalAlignment="Center" FontSize="18" Text="5%" VerticalAlignment="Center" Margin="10,5" Foreground="White"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

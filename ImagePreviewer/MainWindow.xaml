@@ -1,0 +1,16 @@
+﻿<Window x:Class="ImagePreviewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:imagePreviewer="clr-namespace:WpfControls.ImagePreviewer;assembly=WpfControls.ImagePreviewer"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" 
+        ResizeMode="NoResize"
+        AllowsTransparency="True" Background="{x:Null}"  
+        MouseMove="BackGround_MouseMove"  WindowStyle="None">
+    <Grid >
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#999999"/>
+        </Grid.Effect>
+        <imagePreviewer:ImagePreviewView x:Name="ImagePreviewer" Margin="20" />
+    </Grid>
+</Window>
