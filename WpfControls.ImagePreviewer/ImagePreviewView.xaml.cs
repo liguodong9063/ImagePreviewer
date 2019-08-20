@@ -286,7 +286,7 @@ namespace WpfControls.ImagePreviewer
         }
         private void stkClose_MouseLeave(object sender, MouseEventArgs e)
         {
-            Close.Visibility = Visibility.Collapsed;
+            Close.Visibility = Visibility.Visible;
         }
         private void StkRight_MouseMove(object sender, MouseEventArgs e)
         {
@@ -306,8 +306,8 @@ namespace WpfControls.ImagePreviewer
         }
         private void Border_LostFocus(object sender, RoutedEventArgs e)
         {
-            spl_gj.Visibility = Visibility.Collapsed;
-            border1.Visibility = Visibility.Collapsed;
+            spl_gj.Visibility = Visibility.Visible;
+            border1.Visibility = Visibility.Visible;
         }
 
         private void Border_GotFocus(object sender, RoutedEventArgs e)

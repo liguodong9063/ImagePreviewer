@@ -498,31 +498,31 @@
 		    <Button x:Name="DownImage" Click="DownImg_Click" Style="{StaticResource NextOneButtonStyle}"/>
 		   
 		    <Button Click="Restore_Click" Style="{StaticResource RestoreButtonStyle}"/>-->
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Orientation="Horizontal" Visibility="Collapsed"  x:Name="spl_gj"  Panel.ZIndex="10" Cursor="Arrow" Margin="0">
-          
-                <Button x:Name="SaveAs" BorderThickness="0 0 0 4" Margin="10,0,0,0" Style="{StaticResource SaveAsButtonStyle}"/>
-                <Button x:Name="btnActualsize" BorderThickness="0 0 0 4" ToolTip="实际大小" FontSize="20" Margin="11,0,5,0" Style="{StaticResource RestoreButtonStyle}"  Cursor="Hand"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Orientation="Horizontal" Visibility="Visible"  x:Name="spl_gj"  Panel.ZIndex="10" Cursor="Arrow" Margin="0">
+
+                <Button x:Name="SaveAs" Panel.ZIndex="54" BorderThickness="0 0 0 4" Margin="10,0,0,0" Style="{StaticResource SaveAsButtonStyle}"/>
+                <Button x:Name="btnActualsize" BorderThickness="0 0 0 4" ToolTip="实际大小" Panel.ZIndex="54" FontSize="20" Margin="11,0,5,0" Style="{StaticResource RestoreButtonStyle}"  Cursor="Hand"/>
                 <Button x:Name="btnEnlarge" BorderThickness="0 0 0 4" ToolTip="图片放大" Margin="5,0" Style="{DynamicResource fdj}" Cursor="Hand">
 
                 </Button>
                 <Button x:Name="btnNarrow" BorderThickness="0 0 0 4" ToolTip="图片缩小" Margin="5,0" Panel.ZIndex="54" Style="{DynamicResource sxj}" Cursor="Hand">
 
                 </Button>
-                <Button x:Name="btnRotate" BorderThickness="0 0 0 4" Margin="5,0,10,0" ToolTip="向右旋转" Style="{StaticResource TurnRightButtonStyle}"  Cursor="Hand">
+                <Button x:Name="btnRotate" BorderThickness="0 0 0 4" Margin="5,0,10,0" Panel.ZIndex="54" ToolTip="向右旋转" Style="{StaticResource TurnRightButtonStyle}"  Cursor="Hand">
 
                 </Button>
-                <Button x:Name="btnLeft" BorderThickness="0 0 0 4" Margin="5,0,10,0" ToolTip="向左旋转" Style="{StaticResource TurnLeftButtonStyle}" Cursor="Hand">
+                <Button x:Name="btnLeft" BorderThickness="0 0 0 4" Margin="5,0,10,0" Panel.ZIndex="54" ToolTip="向左旋转" Style="{StaticResource TurnLeftButtonStyle}" Cursor="Hand">
 
                 </Button>
             </StackPanel>
 
         </Border>
-        <Border x:Name="border1" BorderThickness="0" Margin="0,0,0,0" Height="60"  VerticalAlignment="Bottom" Width="420" Opacity="0.5" Visibility="Collapsed"  HorizontalAlignment="Center" CornerRadius="5,5,0,0" Background="#f5f5f5">
+        <Border x:Name="border1" BorderThickness="0" Margin="0,0,0,0" Height="60"  VerticalAlignment="Bottom" Width="420" Opacity="0.5" Visibility="Visible"  HorizontalAlignment="Center" CornerRadius="5,5,0,0" Background="#f5f5f5">
         
 
         </Border>
         <StackPanel HorizontalAlignment="Right" x:Name="stkClose" Width="1420" Panel.ZIndex="54" Height="70" VerticalAlignment="Top" Background="Transparent" Orientation="Horizontal" Margin="0">
-            <Button x:Name="Close" ToolTip="关闭"  Content="关闭" Style="{StaticResource LoginViewColseButton}" Visibility="Collapsed"  FontSize="20" Margin="1380,0,0,30" Cursor="Hand"/>
+            <Button x:Name="Close" ToolTip="关闭"  Content="关闭" Style="{StaticResource LoginViewColseButton}" Visibility="Visible"  FontSize="20" Margin="1380,0,0,30" Cursor="Hand"/>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" Background="Transparent" x:Name="stkRight" VerticalAlignment="Center" Height="720" Width="100" Orientation="Horizontal" Margin="0">
