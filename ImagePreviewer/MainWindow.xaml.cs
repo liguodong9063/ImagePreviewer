@@ -31,9 +31,15 @@ namespace ImagePreviewer
             var image4 = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/testImage4.jpg"));
             var byte4 = image4.ToByteArray();
 
+            var image5 = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/QQ图片20191012153145.jpg"));
+            var byte5 = image5.ToByteArray();
+
+            var image6 = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/QQ图片20191012153154.jpg"));
+            var byte6 = image6.ToByteArray();
+
             var imageSources = new List<byte[]>
             {
-                byte1,byte2,byte3,byte4
+                byte1,byte2,byte3,byte4,byte5,byte6
             };
 
             

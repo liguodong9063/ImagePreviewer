@@ -407,8 +407,8 @@ namespace WpfControls.ImagePreviewer
                 
                 imgBig.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index-1]);
                 imgless.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index-1]);
-                imgBig.Width = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index - 1])).Width;
-                imgBig.Height = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index - 1])).Height;
+                //imgBig.Width = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index - 1])).Width;
+                //imgBig.Height = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index - 1])).Height;
                 //imgless.Width = (SourceList.imageSources[SourceList.Index - 1]).Width;
                 //imgless.Height = (SourceList.imageSources[SourceList.Index - 1]).Height;
 
@@ -431,8 +431,8 @@ namespace WpfControls.ImagePreviewer
                 }
 
             }
-            this.UpdateLayout();
-            GetImageWidthHeight();
+            //this.UpdateLayout();
+            //GetImageWidthHeight();
             //thumbWidth = (int)mask.ActualWidth;
             //thumbHeight = (int)mask.ActualHeight;
             //double timeH = svImg.ViewportHeight / (svImg.ViewportHeight + svImg.ScrollableHeight);
@@ -475,8 +475,7 @@ namespace WpfControls.ImagePreviewer
 
                 imgBig.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index + 1]);
                 imgless.Source = ByteArrayToBitmapImage(SourceList.ImageSources[SourceList.Index + 1]);
-                imgBig.Width = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index + 1])).Width;
-                imgBig.Height = ByteArrayToBitmapImage((SourceList.ImageSources[SourceList.Index + 1])).Height;
+                
                 //imgless.Width = (SourceList.imageSources[SourceList.Index - 1]).Width;
                 //imgless.Height = (SourceList.imageSources[SourceList.Index - 1]).Height;
 
@@ -498,8 +497,6 @@ namespace WpfControls.ImagePreviewer
                 }
 
             }
-            this.UpdateLayout();
-            GetImageWidthHeight();
             //thumbWidth = (int)mask.ActualWidth;
             //thumbHeight = (int)mask.ActualHeight;
             //double timeH = svImg.ViewportHeight / (svImg.ViewportHeight + svImg.ScrollableHeight);
@@ -520,7 +517,7 @@ namespace WpfControls.ImagePreviewer
         {
             this.UpdateLayout();
             if (imgWidth == 0.0 || imgHeight == 0.0|| SourceChange)
-            {
+        {
                 imgWidth = imgBig.ActualWidth;
                 imgHeight = imgBig.ActualHeight;
             }

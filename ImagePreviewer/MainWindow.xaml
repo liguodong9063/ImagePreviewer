@@ -11,6 +11,6 @@
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#999999"/>
         </Grid.Effect>
-        <imagePreviewer:ImagePreviewView x:Name="ImagePreviewer" Margin="20" />
+        <imagePreviewer:ImagePreviewView x:Name="ImagePreviewer"  Margin="20" />
     </Grid>
 </Window>
