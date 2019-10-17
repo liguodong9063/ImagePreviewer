@@ -36,14 +36,16 @@ namespace ImagePreviewer
 
             var image6 = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/QQ图片20191012153154.jpg"));
             var byte6 = image6.ToByteArray();
+            var image7 = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/MaxMessage.png"));
+            var byte7 = image7.ToByteArray();
 
             var imageSources = new List<byte[]>
             {
-                byte1,byte2,byte3,byte4,byte5,byte6
+                byte1,byte2,byte3,byte4,byte5,byte6,byte7
             };
 
             
-            ImagePreviewer.SourceList = new ImageListIndex { Index = 2, ImageSources = imageSources };
+            ImagePreviewer.SourceList = new ImageListIndex { Index = 5, ImageSources = imageSources };
             ImagePreviewer.CloseDelegate = isClose =>
             {
                 if (isClose)

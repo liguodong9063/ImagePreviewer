@@ -465,7 +465,7 @@
             <Grid x:Name="rootGrid"  Background="#F5F5F5"  
                   >
                 <ContentControl x:Name="control"  HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="0,0,0,0">
-                    <Image x:Name="imgBig" Cursor="Help" Width="1400" Height="719" LayoutTransform="{StaticResource TfGroup}" Stretch="Uniform"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Image x:Name="imgBig" Cursor="Help"  LayoutTransform="{StaticResource TfGroup}" Stretch="Uniform"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                         <Image.Effect>
                             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#c8c8c8"/>
                         </Image.Effect>

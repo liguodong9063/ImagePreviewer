@@ -6,7 +6,7 @@
         Title="MainWindow" 
         ResizeMode="NoResize"
         AllowsTransparency="True" Background="{x:Null}"  
-        MouseMove="BackGround_MouseMove" KeyDown="ImagePreviewView_KeyDown" WindowStyle="None">
+        MouseMove="BackGround_MouseMove"  KeyDown="ImagePreviewView_KeyDown" WindowStyle="None">
     <Grid >
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#999999"/>
